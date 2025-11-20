@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/yourusername/MyApp.git'
+        git 'https://github.com/SomeshRampure/Practice.git'
       }
     }
     stage('Build') {
