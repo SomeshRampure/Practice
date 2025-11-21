@@ -1,42 +1,28 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop', url: 'https://github.com/SomeshRampure/Practice.git'
+                git branch: 'main', url: 'https://github.com/SomeshRampure/Practice.git'
             }
         }
-
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                bat 'echo Building MyApp on Windows > build.log'
+                bat 'docker build -t practice-demo:latest .'
             }
         }
-
-        stage('Test') {
+        stage('Run Container') {
             steps {
-                bat 'echo Running tests... > test.log'
-            }
-        }
-
-        stage('Archive') {
-            steps {
-                archiveArtifacts artifacts: '*.log', fingerprint: true
+                bat 'docker run --rm practice-demo:latest'
             }
         }
     }
-
     post {
         success {
-            mail to: 'your-email@example.com',
-                 subject: "SUCCESS: Jenkins Build #${env.BUILD_NUMBER}",
-                 body: "Build completed successfully. Artifacts archived."
+            bat 'echo Build and Docker run succeeded!'
         }
         failure {
-            mail to: 'your-email@example.com',
-                 subject: "FAILURE: Jenkins Build #${env.BUILD_NUMBER}",
-                 body: "Build failed. Please check logs."
+            bat 'echo Build failed!'
         }
     }
 }
