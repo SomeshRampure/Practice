@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/SomeshRampure/Practice.git'
+                git branch: 'master', url: 'https://github.com/SomeshRampure/Practice.git'
             }
         }
         stage('Build Docker Image') {
