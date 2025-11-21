@@ -6,11 +6,13 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/SomeshRampure/Practice.git'
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t practice-demo:latest .'
-            }
-        }
+        
+		stage('Build Docker Image') {
+			steps {
+				bat 'docker build -f "C:\\Users\\someshk1\\Documents\\Python\\Practice\\DockerFile" -t practice-demo:latest .'
+			}
+		}
+
         stage('Run Container') {
             steps {
                 bat 'docker run --rm practice-demo:latest'
