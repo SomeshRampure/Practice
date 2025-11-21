@@ -1,0 +1,2 @@
+
+echo hello from Jenkins + Docker on Windows !
