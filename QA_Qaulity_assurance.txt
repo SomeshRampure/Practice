@@ -1,0 +1,165 @@
+1. QA - Qaulity assurance, Prevents the bugs, process oriented 
+QC - Qaulity control, find the bugs, product oriented
+verification - software meets desgin, to test the design, reviewing code, documentation, by developer
+validation - software meets end user, to test the functionality of product, maintainence, by tester
+
+2. risk based testing - testing the product/ software using previous experience, common mistakes, usual bugs
+risk = impact x likelihood
+when time and resource are limited
+
+3. Severity - Impact of the bug on the functionality
+priority - How soon the bug should be fixed
+high S , high p - a mobile device is crashed while outgoing call
+low S, low p - spelling mistake in about section
+
+4. Good Tc - TC ID, Objective, Pre condition, input data, test steps, expected, actual, req ID
+I create test scenarios from reuiments or user stories, then I map those scnarios to req, then I create test cases covering the scenarios and req
+
+5. EP - to divide the the data into various parts, only secific data can be tested instead of testing all the data (population of city, tier 1(10 lakhs+), 2(5 lakh to 10 lakhs) etc)
+BVA - to test only the boundry input and out values from given data (voter id age above 18 only)
+
+Feature - Add a product to cart
+Scenarios - 1. Add a product to cart
+	2. Add multiple products to cart max 10
+	3. product ID are available from 1 to 1000 only
+	4. Add a note with max 200 characters
+	5. Correct product appears in cart
+	6. Add a product to cart with multiple quantities
+Test case - 
+1. TS - 01
+	TC_01 : To verify that user is able to click on "Add product to cart"
+	Pre-condition : user is logged in with valid credentials
+	Steps : 1. Click on search option
+		2. Type monitor and search
+		3. Open 1st item
+		4. observe the item page
+		5. click on "Add a product to cart"
+	Expected : 1. user must be able to click on "Add a product to cart" option visible on item page
+	Actual : 
+2. TS - 02
+	TC_02 : To verify that user is able to add multiple items to cart
+	Pre-condition : user is logged in
+	Steps : 1. Click on search option
+		2. Type monitor and search
+		3. Open 1st item
+		4. observe the item page
+		5. click on "Add a product to cart"
+		6. repeat step 1
+		7. Type "Mouse" and search
+		8. repeat step 3, 4 and 5
+		9. repeat step 1
+		10. Type "Keyboard" and search
+		11. repeat step 3, 4 and 5
+	Expected : After step 5, Monitor should be added in cart
+		   After step 8, Mouse should be added in cart
+		   After step 11, Keyboard should be added in cart
+	Actual : 
+3. TS - 04
+	TC_03 : To verify that user is able to add note
+	Pre-condition : user is logged in with valid credentials
+	Steps : 1. Click on search option
+		2. Type monitor and search
+		3. Open 1st item
+		4. observe the item page
+		5. click on "Add a product to cart"
+		6. click on "Add note"
+	Expected : 1. user must be able to click on "Add note" option visible on cart page
+	Actual : 
+4. TS - 04
+	TC_04 : To verify that user is able to add note with max 200 characters only
+	Pre-condition : user is logged in with valid credentials
+	Steps : 1. Click on search option
+		2. Type monitor and search
+		3. Open 1st item
+		4. observe the item page
+		5. click on "Add a product to cart"
+		6. click on "Add note" 
+		7. write exact 200 words
+	Expected : 1. user must be able to write only 200 characters in add to note section
+	Actual : 
+5. TS - 05
+	TC_05 : To verify that user is able to see the exact same product added to cart
+	Pre-condition : user is logged in with valid credentials
+	Steps : 1. Click on search option
+		2. Type monitor and search
+		3. Open 1st item
+		4. observe the item page
+		5. click on "Add a product to cart"
+	Expected : 1. user must be able to see the exact same product added to cart
+	Actual : 
+
+Edge/Negative/Boundary
+TC_06 : To verify that user is able to add note with 201 characters
+TC_07 : To verify that user is able to visit cart page without adding any items to it
+TC_08 : To verify that user is able to see product id 1
+TC_09 : To verify that user is able to see product id 2
+TC_10 : To verify that user is able to see product id -1
+TC_11 : To verify that user is able to see product id 999
+TC_12 : To verify that user is able to see product id 1000
+TC_13 : To verify that user is able to see product id 1001
+TC_14 : To verify that user is able to decrease item quantity below 0
+
+Feature - Create user profile
+Scenarios - 1. User is able to create profile
+	2. User is able to enter 3 to 20 charaters only in username field
+	3. valid email format
+	4. Phone should have 10 digits only
+	5. Age should be between 18 to 99
+	6. Bio can have max 500 characters
+	7. After submitting, profile is created successfully
+Test case - 
+	TC_01 : To verify user can create a profile
+	Pre-condition : 1. New user
+	Steps : 1. Click on create profile
+	Expected : User is able to land on new page with profile details on it
+
+	TC_02 : To verify that user is able to enter only 3 characters in username field
+	Pre-condition : new user is on create profile page
+	Steps : 1. Click on username field
+		2. Enter any 3 letters in username field
+	data : abc
+	Expected : letters abc should be successfully entered on username
+
+	TC_03 : To verify that user is able to enter only 20 characters in username field
+	Pre-condition : new user is on create profile page
+	Steps : 1. Click on username field
+		2. Enter any 20 letters in username field
+	data : abcdqwertyasdfghzxcvb
+	Expected : letters abcdqwertyasdfghzxcvb should be successfully entered on username
+
+	TC_04 : To verify that user is not able to enter 2 characters in username field
+	Pre-condition : new user is on create profile page
+	Steps : 1. Click on username field
+		2. Enter any 2 letters in username field
+	data : ab
+	Expected : letters ab should be entered on username but not acceptable by username field
+
+	TC_05 : To verify that user is not able to enter 21 characters in username field
+	Pre-condition : new user is on create profile page
+	Steps : 1. Click on username field
+		2. Enter any 21 letters in username field
+	data : abcdqwertyasdfghzxcvbq
+	Expected : Those 21 letters should be entered on username not acceptable by username field
+
+	TC_06 : To verify that user is able to enter valid email format in email field
+	Pre-condition : new user is on create profile page
+	Steps : 1. Click on email field
+		2. Enter valid email in email field
+	data : abc@gmail.com
+	Expected : email should be successfully entered in email field
+
+Edge/Negative/Boundary
+1. To verify that user is able to enter 4 characters in username field
+2. To verify that user is able to enter 19 characters in username field
+3. To verify that user is not able to enter invalid email format in email field
+4. To verify that user is able to enter valid 10 digits in Phone field
+5. To verify that phone field does not allow to enter 9 digits
+6. To verify that phone field does not allow to enter 11 digits
+7. To verify that age field does not allow to enter age below 18
+8. To verify that age field does not allow to enter age above 99
+9. To verify that age field allows to enter age above 18
+10. To verify that age field allows to enter age below 18
+11. To verify that bio field allows 500 characters
+12. To verify that bio field allows 499 characters
+13. To verify that bio field does not allow 501 characters
+14. To verify that username field allows only letters, number and underscore only
