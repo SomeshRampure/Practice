@@ -1,0 +1,130 @@
+Positive scenarios - 
+1. verify user can log in with valid credentials
+2. verify user has valid email format
+3. verify user has valid username
+4. verify user has received successful login attempt
+5. verify user is able to click on login button
+6. verify user is able to click on "Forgot password" link
+11. verify user is able to see forgot password page after clicking on the link
+
+Negative scenarios
+7. verify user has got error msg for invalid username
+8. verify user has got error msg for invalid password
+9. verify user has got error for both incorrect
+15. verify user cannot retry 6th time login
+
+Edge scenarios
+10. verify user can only retry max 5 times 
+12. verify email has max 20 characters
+13. verify username has max 20 characters
+14. verify password has max 20 characters with different types combined
+16. verify user has to wait for 10 mins for 6th retry
+
+TC_ID 001 : TO verify that user is able to login with valid username and valid password
+Pre conditions : 1. user is on login page
+Steps : 1. Click on username field and enter valid username
+	2. Click on password field and enter valid password
+	3. Click on "Login" button
+Test data : username - Somesh
+	    password - Somesh@9684
+Expected : User should be successfully logged in
+Severity : High
+Priority : High
+
+TC_ID 002 : TO verify that error message is shown to user when username field is empty and password is filled
+Pre conditions : 1. user is on login page
+Steps : 1. Click on username field and keep it blank
+	2. Click on password field and enter valid password
+	3. Click on "Login" button
+Test data : username - 
+	    password - Somesh@9684
+Expected : User should be shown error message as "username cannot be empty"
+Severity : med
+Priority : med
+
+TC_ID 003 : To verify that account lockout behaviour after 5 consecutive failed login attempts.
+Pre conditions : 1. user is on login page
+Steps : 1. Click on username field and enter invalid username
+	2. Click on password field and enter invalid password
+	3. Click on "Login" button
+Test data : username - Somesh123
+	    password - Somesh@123
+Expected : User should be shown error message as "Account locked out due multiple failed login attempts"
+Severity : High
+Priority : High
+
+
+Title : After valid credentials, user is not able to view his dashboard successfully
+
+Environment (you can assume: Staging, Chrome latest, Windows) : Windows 10, Asus laptop
+
+Preconditions : 1. User is registered successfully and account is active
+		2. user is no login page
+
+Steps to reproduce (match TC_001) : Steps : 1. Click on username field and enter valid username
+	2. Click on password field and enter valid password
+	3. Click on "Login" button
+
+Test data : username - Somesh
+	    password - Somesh@9684
+
+Actual result : login is failed with error message as "Something went wrong. Please try again later"
+
+Expected result : 1. User should be successfully logged in
+		  2. Username should be visible on dashboard
+
+Severity : High
+
+Priority : High
+
+Any notes (logs/screenshot mention) : Login.txt, login.png, credentials.txt
+
+
+Edge cases -
+1. verify spaces are not allowed in username and password field
+2. verify user is allowed to enter only 20 characters in username field
+3. verify user is allowed to enter only 10 characters in password field
+4. verify user is able to error message as "Account deactivated" after 3 months of pervious login
+5. verify user is able to error message as "Account locked" after 5 consecutive failed login attempts
+6. verify user should enter username only in lower case
+7. verify user can enter password in upper and lower case
+8. verify user gets message of "empty username not allowed" when username field is kept empty and clicked on login
+9. verify login behaviour when there is network interruption after clicking the login button
+10. verify login behaviour when there is browser crash after clicking the login button
+
+
+
+validation : 6. verify user should enter username only in lower case
+7. verify user can enter password in upper and lower case
+
+security :
+
+boundary :2. verify user is allowed to enter only 20 characters in username field
+3. verify user is allowed to enter only 10 characters in password field
+5. verify user is able to error message as "Account locked" after 5 consecutive failed login attempts
+
+environment :
+
+session/network :9. verify login behaviour when there is network interruption after clicking the login button
+10. verify login behaviour when there is browser crash after clicking the login button
+
+How would you test the “Forgot Password” functionality on a login page?
+- I would test forgot password functionality by Positive, negative, edge. If I find a defect, I would log it with clear steps, actual vs expected result, and severity.
+Passwrod masking for new, old and confirm field, reset button, received reset link on mail, clickable link, is password updated in system, is login successful.
+
+scenario - overview of what and which requirement to be tested
+
+test case - detailed information of how and what particular scenario or functionality to be tested
+
+test data - input data used in a particular test case
+
+Severity - how much a defect is affecting the functionlity
+priority - urgency to fix a defect
+High S high p - failing login functionality with valid credentials
+low s high p - application logo missing colors
+
+verification - when software meets design, documentation, reviewing overview, development
+validation - when software meets the user, code review, testing, real world data
+
+bug report - a detailed information of a bug which is c=made by tester so that developer can easlity understand the issue and resoilve it.
+bug id, title, environment, pre condtions, steps, redproduced, build, version, attachments, occurance, severity
