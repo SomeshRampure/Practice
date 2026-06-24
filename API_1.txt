@@ -1,0 +1,41 @@
+API - Application programming interface, it acts as an bridge between backend and business logic without UI layer with the help of HTTP response and request 
+
+HTTP - Hyper text transfer protocol
+GET - retirve data
+POST - create new resource
+PUT - update resource fully
+PATCH - update resource partially
+DELETE - remove data
+
+PUT - fully update an existing resource, Idempotent
+PTACH - Partial update an existing resource, non idempotent
+POST - create new resource, non idempotent
+
+401 - unauthorised - authentication missing/invalid credentials - not logged in
+403 - forbidden - authenticated but not allowed access - logged in but not allowed to access
+
+REST - Representational state transfer, Architechural design for building APIs, communication between client and server through HTTP method
+
+main components of API request - url, header, request body, 
+
+difference between content type and accept
+content type - json, xml, form data, what I sent, format to be sent
+accept - application/json, what I want back, data format accepted in response
+
+request parameter - header, request body, url, for CRUD operations
+path parameter - to goto specific resource, /user/123
+query parameter - for sorting/filtering resource, with '?', pagination
+
+request body - what to send, to POST/PUT/PATCH, json format, url, type of header, authentication
+response body - what to expect, status codes, json format
+
+authentication - who are you, verifies user identity, 401 unauthorized
+authorization - authenticated, but what are you allowed to do, permissions, 403 forbidden
+
+200 - ok, GET/PUT/PATCH/DELETE, resource exists, request succeeded
+201 - created new resource, PUT/POST 
+204 - resource deleted, resource not available, no content
+200 = success
+201 = success + created
+204 = success + empty body
+
