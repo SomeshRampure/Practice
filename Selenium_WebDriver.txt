@@ -1,0 +1,30 @@
+01. What is Selenium WebDriver 
+- Browser automation API that lets you programmatically control real browsers to interact with web page for UI testing
+
+02. Why use Python with Selenium?
+- Python with rich libraries, strong community support and syntax, allows fast development of readable automation framework with fixtures and plugin
+
+03. What is Pytest
+- Python testing framework that provides simple syntax with rich libraries, powerful fixtures, parameterization, markers, flexible reporting.
+- used for unit and UI automation.
+
+04. What is Page Object Model (POM)
+- Design pattern where each page or key components of application under test is represented as a class that encapsulates locator and actions
+- reducing duplication, improving readability and maintainability
+
+05. What is a hybrid framework?
+- combines multiple patterns to leverage their strengths and support to complex automation (POM, data driven, utilities, fixtures, reports)
+
+06. Why separate tests from page objects
+- Test = what to validate
+- Page objects = encapsulates how to interact with elements
+- So changes in UI locators require changes in page objects only, not in all tests
+
+07. How do you design a Pytest fixture
+- In conftest, fixture is that creates driver, yields it to tests and then quits in teardown
+
+08. How do you capture screenshots on failure in Pytest with Selenium
+- use pytest hook or fixtures to analyze the report
+- when result.when =="call" and result.failed, access the driver fixture and call driver.save.screenshot() to a predefined path
+
+09. 
