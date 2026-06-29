@@ -1,0 +1,71 @@
+Feature: User Login
+High-level description:
+A user can log into the application using email and password on the login page.
+
+Requirement Analysis
+Scope - User can login into application with email and password on login page.
+
+Assumption - Valid email, valid password, registered, account locked after 3 failed login attempts
+
+test conditions - valid login, empty login, dashboard, enter or click on login, logout session, invalid login, remember me
+
+risks - length and complexity of password, unregistered but valid email try, 4th fail attempt after 15 mins
+
+
+Test Planning
+objective - user can login into application with valid mail and valid password
+	  - user is locked out for 15 mins after 3 failed login attempts
+	  - redirect to dashboard after successful login
+	  - redirect to login after logout
+	  - Remember me option behaviour
+
+Scope - in scope - valid username and password, email format, account locked after 15 mins after 3rd fail attempts, 
+      - out of scope - 
+
+Entry criteria - user should be registered and should be on login page to login
+
+Exit criteria - user should be directed to dashboard after successful login.
+	      - user should be directed to login page after logout session
+
+risks - Unstable internet, change of browser, 4th fail attempt after 15 mins
+
+test scenarios - 
+1. login with valid email and correct password
+2. login with registered email
+3. login with blank email and blank password
+4. login with click or enter button
+5. login 4th attempt after 15 min locked
+6. login 4th attempt within 15 min locked
+7. redirect to dashboard after successful login
+8. redirect to login after logout session
+9. remember be checked box functionality
+10. remember be unchecked box functionality
+
+Test cases 
+ID - TC_LOGIN_001
+RTM- Req_001
+Title - To verify that user can login into application using valid email and correct password
+Pre-conditions - 1. Registered user
+		2. Active account
+		3. User is on login page
+Steps - 1. Enter valid email in email field
+	2. Enter correct password in password field
+	3. click on login button
+Test data - email = somesh@123
+	    password = 123$%^QWERTY
+Expected - User is successfully logged into application and directed to dashboard
+Prority - High
+
+ID - TC_LOGIN_001
+RTM- Req_001
+Title - To verify that user can login into application using valid email and correct password
+Pre-conditions - 1. Registered user
+		2. Active account
+		3. User is on login page
+Steps - 1. Enter valid email in email field
+	2. Enter correct password in password field
+	3. click on login button
+Test data - email = somesh@123
+	    password = 123$%^QWERTY
+Expected - User is successfully logged into application and directed to dashboard
+Prority - High
